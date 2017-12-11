@@ -8,6 +8,7 @@
     <genClasses ecoreClass="contextML.ecore#//Context">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contextML.ecore#//Context/entity"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contextML.ecore#//Context/provider"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contextML.ecore#//Context/name"/>
     </genClasses>
     <genClasses ecoreClass="contextML.ecore#//Entity"/>
     <genClasses ecoreClass="contextML.ecore#//Provider">
