@@ -6,6 +6,10 @@
     operationReflection="true" importOrganizing="true">
   <foreignModel>essentialIFML.ecore</foreignModel>
   <genPackages prefix="EssentialIFML" disposableProviderFactory="true" ecorePackage="essentialIFML.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="essentialIFML.ecore#//Datatype">
+      <genEnumLiterals ecoreEnumLiteral="essentialIFML.ecore#//Datatype/String"/>
+      <genEnumLiterals ecoreEnumLiteral="essentialIFML.ecore#//Datatype/Integer"/>
+    </genEnums>
     <genClasses ecoreClass="essentialIFML.ecore#//EssentialIFMLModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference essentialIFML.ecore#//EssentialIFMLModel/viewcontainer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference essentialIFML.ecore#//EssentialIFMLModel/action"/>
@@ -21,6 +25,10 @@
     </genClasses>
     <genClasses ecoreClass="essentialIFML.ecore#//Field">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute essentialIFML.ecore#//Field/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute essentialIFML.ecore#//Field/type"/>
+    </genClasses>
+    <genClasses ecoreClass="essentialIFML.ecore#//DetailsText">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute essentialIFML.ecore#//DetailsText/text"/>
     </genClasses>
     <genClasses ecoreClass="essentialIFML.ecore#//Action">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference essentialIFML.ecore#//Action/navigates"/>

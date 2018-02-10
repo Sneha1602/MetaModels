@@ -3,7 +3,10 @@
 package essentialIFML.impl;
 
 import essentialIFML.Action;
+import essentialIFML.Annotation;
+import essentialIFML.Datatype;
 import essentialIFML.Details;
+import essentialIFML.DetailsText;
 import essentialIFML.EssentialIFMLFactory;
 import essentialIFML.EssentialIFMLModel;
 import essentialIFML.EssentialIFMLPackage;
@@ -16,6 +19,7 @@ import essentialIFML.ViewContainer;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -63,6 +67,13 @@ public class EssentialIFMLPackageImpl extends EPackageImpl implements EssentialI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass detailsTextEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass actionEClass = null;
 
 	/**
@@ -92,6 +103,20 @@ public class EssentialIFMLPackageImpl extends EPackageImpl implements EssentialI
 	 * @generated
 	 */
 	private EClass viewComponentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass annotationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum datatypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -225,6 +250,15 @@ public class EssentialIFMLPackageImpl extends EPackageImpl implements EssentialI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getViewContainer_Annotation() {
+		return (EReference)viewContainerEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEvent() {
 		return eventEClass;
 	}
@@ -254,6 +288,33 @@ public class EssentialIFMLPackageImpl extends EPackageImpl implements EssentialI
 	 */
 	public EAttribute getField_Label() {
 		return (EAttribute)fieldEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getField_Type() {
+		return (EAttribute)fieldEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDetailsText() {
+		return detailsTextEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDetailsText_Text() {
+		return (EAttribute)detailsTextEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -351,6 +412,33 @@ public class EssentialIFMLPackageImpl extends EPackageImpl implements EssentialI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAnnotation() {
+		return annotationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAnnotation_Annotation() {
+		return (EAttribute)annotationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDatatype() {
+		return datatypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EssentialIFMLFactory getEssentialIFMLFactory() {
 		return (EssentialIFMLFactory)getEFactoryInstance();
 	}
@@ -382,12 +470,17 @@ public class EssentialIFMLPackageImpl extends EPackageImpl implements EssentialI
 		createEAttribute(viewContainerEClass, VIEW_CONTAINER__IS_DEFAULT);
 		createEAttribute(viewContainerEClass, VIEW_CONTAINER__IS_LANDMARK);
 		createEReference(viewContainerEClass, VIEW_CONTAINER__VIEWCOMPONENT);
+		createEReference(viewContainerEClass, VIEW_CONTAINER__ANNOTATION);
 
 		eventEClass = createEClass(EVENT);
 		createEReference(eventEClass, EVENT__ACTION);
 
 		fieldEClass = createEClass(FIELD);
 		createEAttribute(fieldEClass, FIELD__LABEL);
+		createEAttribute(fieldEClass, FIELD__TYPE);
+
+		detailsTextEClass = createEClass(DETAILS_TEXT);
+		createEAttribute(detailsTextEClass, DETAILS_TEXT__TEXT);
 
 		actionEClass = createEClass(ACTION);
 		createEReference(actionEClass, ACTION__NAVIGATES);
@@ -403,6 +496,12 @@ public class EssentialIFMLPackageImpl extends EPackageImpl implements EssentialI
 		createEAttribute(detailsEClass, DETAILS__TEXT);
 
 		viewComponentEClass = createEClass(VIEW_COMPONENT);
+
+		annotationEClass = createEClass(ANNOTATION);
+		createEAttribute(annotationEClass, ANNOTATION__ANNOTATION);
+
+		// Create enums
+		datatypeEEnum = createEEnum(DATATYPE);
 	}
 
 	/**
@@ -440,6 +539,7 @@ public class EssentialIFMLPackageImpl extends EPackageImpl implements EssentialI
 		viewContainerEClass.getESuperTypes().add(this.getNamedElement());
 		eventEClass.getESuperTypes().add(this.getNamedElement());
 		fieldEClass.getESuperTypes().add(this.getNamedElement());
+		detailsTextEClass.getESuperTypes().add(this.getNamedElement());
 		actionEClass.getESuperTypes().add(this.getNamedElement());
 		formEClass.getESuperTypes().add(this.getViewComponent());
 		detailsEClass.getESuperTypes().add(this.getViewComponent());
@@ -454,12 +554,17 @@ public class EssentialIFMLPackageImpl extends EPackageImpl implements EssentialI
 		initEAttribute(getViewContainer_IsDefault(), theXMLTypePackage.getBoolean(), "isDefault", null, 0, 1, ViewContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getViewContainer_IsLandmark(), theXMLTypePackage.getBoolean(), "isLandmark", null, 0, 1, ViewContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getViewContainer_Viewcomponent(), this.getViewComponent(), null, "viewcomponent", null, 0, -1, ViewContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getViewContainer_Annotation(), this.getAnnotation(), null, "annotation", null, 1, 1, ViewContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEvent_Action(), this.getAction(), null, "action", null, 1, -1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getField_Label(), ecorePackage.getEString(), "label", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getField_Type(), this.getDatatype(), "type", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(detailsTextEClass, DetailsText.class, "DetailsText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDetailsText_Text(), ecorePackage.getEString(), "text", null, 0, 1, DetailsText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAction_Navigates(), this.getViewContainer(), null, "navigates", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -475,6 +580,14 @@ public class EssentialIFMLPackageImpl extends EPackageImpl implements EssentialI
 		initEAttribute(getDetails_Text(), ecorePackage.getEString(), "text", null, 0, 1, Details.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(viewComponentEClass, ViewComponent.class, "ViewComponent", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(annotationEClass, Annotation.class, "Annotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAnnotation_Annotation(), ecorePackage.getEString(), "annotation", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(datatypeEEnum, Datatype.class, "Datatype");
+		addEEnumLiteral(datatypeEEnum, Datatype.STRING);
+		addEEnumLiteral(datatypeEEnum, Datatype.INTEGER);
 
 		// Create resource
 		createResource(eNS_URI);

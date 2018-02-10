@@ -5,6 +5,7 @@ package essentialIFML.impl;
 import essentialIFML.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -60,12 +61,44 @@ public class EssentialIFMLFactoryImpl extends EFactoryImpl implements EssentialI
 			case EssentialIFMLPackage.VIEW_CONTAINER: return createViewContainer();
 			case EssentialIFMLPackage.EVENT: return createEvent();
 			case EssentialIFMLPackage.FIELD: return createField();
+			case EssentialIFMLPackage.DETAILS_TEXT: return createDetailsText();
 			case EssentialIFMLPackage.ACTION: return createAction();
 			case EssentialIFMLPackage.NAMED_ELEMENT: return createNamedElement();
 			case EssentialIFMLPackage.FORM: return createForm();
 			case EssentialIFMLPackage.DETAILS: return createDetails();
+			case EssentialIFMLPackage.ANNOTATION: return createAnnotation();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case EssentialIFMLPackage.DATATYPE:
+				return createDatatypeFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case EssentialIFMLPackage.DATATYPE:
+				return convertDatatypeToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -114,6 +147,16 @@ public class EssentialIFMLFactoryImpl extends EFactoryImpl implements EssentialI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DetailsText createDetailsText() {
+		DetailsTextImpl detailsText = new DetailsTextImpl();
+		return detailsText;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Action createAction() {
 		ActionImpl action = new ActionImpl();
 		return action;
@@ -147,6 +190,36 @@ public class EssentialIFMLFactoryImpl extends EFactoryImpl implements EssentialI
 	public Details createDetails() {
 		DetailsImpl details = new DetailsImpl();
 		return details;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Annotation createAnnotation() {
+		AnnotationImpl annotation = new AnnotationImpl();
+		return annotation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Datatype createDatatypeFromString(EDataType eDataType, String initialValue) {
+		Datatype result = Datatype.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDatatypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
