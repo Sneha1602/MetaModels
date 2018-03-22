@@ -3,8 +3,8 @@
 package essentialIFML.provider;
 
 
+import essentialIFML.DetailsText;
 import essentialIFML.EssentialIFMLPackage;
-import essentialIFML.Field;
 
 import java.util.Collection;
 import java.util.List;
@@ -18,19 +18,19 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link essentialIFML.Field} object.
+ * This is the item provider adapter for a {@link essentialIFML.DetailsText} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class FieldItemProvider extends NamedElementItemProvider {
+public class DetailsTextItemProvider extends NamedElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FieldItemProvider(AdapterFactory adapterFactory) {
+	public DetailsTextItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -45,26 +45,25 @@ public class FieldItemProvider extends NamedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addLabelPropertyDescriptor(object);
-			addTypePropertyDescriptor(object);
+			addTextPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Label feature.
+	 * This adds a property descriptor for the Text feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addLabelPropertyDescriptor(Object object) {
+	protected void addTextPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Field_label_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Field_label_feature", "_UI_Field_type"),
-				 EssentialIFMLPackage.Literals.FIELD__LABEL,
+				 getString("_UI_DetailsText_text_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DetailsText_text_feature", "_UI_DetailsText_type"),
+				 EssentialIFMLPackage.Literals.DETAILS_TEXT__TEXT,
 				 true,
 				 false,
 				 false,
@@ -74,36 +73,14 @@ public class FieldItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Field_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Field_type_feature", "_UI_Field_type"),
-				 EssentialIFMLPackage.Literals.FIELD__TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns Field.gif.
+	 * This returns DetailsText.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Field"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DetailsText"));
 	}
 
 	/**
@@ -114,10 +91,10 @@ public class FieldItemProvider extends NamedElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Field)object).getName();
+		String label = ((DetailsText)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Field_type") :
-			getString("_UI_Field_type") + " " + label;
+			getString("_UI_DetailsText_type") :
+			getString("_UI_DetailsText_type") + " " + label;
 	}
 	
 
@@ -132,9 +109,8 @@ public class FieldItemProvider extends NamedElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Field.class)) {
-			case EssentialIFMLPackage.FIELD__LABEL:
-			case EssentialIFMLPackage.FIELD__TYPE:
+		switch (notification.getFeatureID(DetailsText.class)) {
+			case EssentialIFMLPackage.DETAILS_TEXT__TEXT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

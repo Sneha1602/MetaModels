@@ -3,8 +3,8 @@
 package essentialIFML.provider;
 
 
+import essentialIFML.Annotation;
 import essentialIFML.EssentialIFMLPackage;
-import essentialIFML.Field;
 
 import java.util.Collection;
 import java.util.List;
@@ -12,25 +12,40 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link essentialIFML.Field} object.
+ * This is the item provider adapter for a {@link essentialIFML.Annotation} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class FieldItemProvider extends NamedElementItemProvider {
+public class AnnotationItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FieldItemProvider(AdapterFactory adapterFactory) {
+	public AnnotationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -45,26 +60,25 @@ public class FieldItemProvider extends NamedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addLabelPropertyDescriptor(object);
-			addTypePropertyDescriptor(object);
+			addAnnotationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Label feature.
+	 * This adds a property descriptor for the Annotation feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addLabelPropertyDescriptor(Object object) {
+	protected void addAnnotationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Field_label_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Field_label_feature", "_UI_Field_type"),
-				 EssentialIFMLPackage.Literals.FIELD__LABEL,
+				 getString("_UI_Annotation_annotation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Annotation_annotation_feature", "_UI_Annotation_type"),
+				 EssentialIFMLPackage.Literals.ANNOTATION__ANNOTATION,
 				 true,
 				 false,
 				 false,
@@ -74,36 +88,14 @@ public class FieldItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Field_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Field_type_feature", "_UI_Field_type"),
-				 EssentialIFMLPackage.Literals.FIELD__TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns Field.gif.
+	 * This returns Annotation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Field"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Annotation"));
 	}
 
 	/**
@@ -114,10 +106,10 @@ public class FieldItemProvider extends NamedElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Field)object).getName();
+		String label = ((Annotation)object).getAnnotation();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Field_type") :
-			getString("_UI_Field_type") + " " + label;
+			getString("_UI_Annotation_type") :
+			getString("_UI_Annotation_type") + " " + label;
 	}
 	
 
@@ -132,9 +124,8 @@ public class FieldItemProvider extends NamedElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Field.class)) {
-			case EssentialIFMLPackage.FIELD__LABEL:
-			case EssentialIFMLPackage.FIELD__TYPE:
+		switch (notification.getFeatureID(Annotation.class)) {
+			case EssentialIFMLPackage.ANNOTATION__ANNOTATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -151,6 +142,17 @@ public class FieldItemProvider extends NamedElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return EssentialIFMLEditPlugin.INSTANCE;
 	}
 
 }

@@ -77,13 +77,22 @@ public interface EssentialIFMLPackage extends EPackage {
 	int NAMED_ELEMENT__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT__ID = 1;
+
+	/**
 	 * The number of structural features of the '<em>Named Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_ELEMENT_FEATURE_COUNT = 1;
+	int NAMED_ELEMENT_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Named Element</em>' class.
@@ -112,6 +121,15 @@ public interface EssentialIFMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int ESSENTIAL_IFML_MODEL__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESSENTIAL_IFML_MODEL__ID = NAMED_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Viewcontainer</b></em>' containment reference list.
@@ -167,6 +185,15 @@ public interface EssentialIFMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int VIEW_CONTAINER__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_CONTAINER__ID = NAMED_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Is Default</b></em>' attribute.
@@ -242,6 +269,15 @@ public interface EssentialIFMLPackage extends EPackage {
 	int EVENT__NAME = NAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT__ID = NAMED_ELEMENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Action</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -286,6 +322,15 @@ public interface EssentialIFMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int FIELD__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__ID = NAMED_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -343,6 +388,15 @@ public interface EssentialIFMLPackage extends EPackage {
 	int DETAILS_TEXT__NAME = NAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DETAILS_TEXT__ID = NAMED_ELEMENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -387,6 +441,15 @@ public interface EssentialIFMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__ID = NAMED_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Navigates</b></em>' reference.
@@ -435,6 +498,15 @@ public interface EssentialIFMLPackage extends EPackage {
 	int VIEW_COMPONENT__NAME = NAMED_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_COMPONENT__ID = NAMED_ELEMENT__ID;
+
+	/**
 	 * The number of structural features of the '<em>View Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -470,6 +542,15 @@ public interface EssentialIFMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int FORM__NAME = VIEW_COMPONENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM__ID = VIEW_COMPONENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Field</b></em>' containment reference list.
@@ -525,6 +606,15 @@ public interface EssentialIFMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int DETAILS__NAME = VIEW_COMPONENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DETAILS__ID = VIEW_COMPONENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -804,6 +894,17 @@ public interface EssentialIFMLPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getNamedElement_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link essentialIFML.NamedElement#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see essentialIFML.NamedElement#getId()
+	 * @see #getNamedElement()
+	 * @generated
+	 */
+	EAttribute getNamedElement_Id();
 
 	/**
 	 * Returns the meta object for class '{@link essentialIFML.Form <em>Form</em>}'.
@@ -1087,6 +1188,14 @@ public interface EssentialIFMLPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAMED_ELEMENT__ID = eINSTANCE.getNamedElement_Id();
 
 		/**
 		 * The meta object literal for the '{@link essentialIFML.impl.FormImpl <em>Form</em>}' class.
